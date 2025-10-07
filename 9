@@ -1,0 +1,62 @@
+CREATE TABLE CLASS (
+    id INT,
+    name VARCHAR(30)
+);
+
+
+
+
+
+
+
+INSERT INTO CLASS VALUES (1, 'Anandhu');
+INSERT INTO CLASS VALUES (2, 'Bhavana');
+COMMIT;
+
+
+
+
+
+
+
+INSERT INTO CLASS VALUES (3, 'Chandru');
+SAVEPOINT A;
+
+INSERT INTO CLASS VALUES (4, 'Devika');
+SAVEPOINT B;
+
+
+
+
+
+
+
+
+-- Before rollback
+SELECT * FROM CLASS;
+
+-- Rollback to B
+ROLLBACK TO B;
+SELECT * FROM CLASS;
+
+
+
+
+
+
+
+
+
+-- Rollback to A
+ROLLBACK TO A;
+SELECT * FROM CLASS;
+
+
+
+
+
+
+
+
+
+
