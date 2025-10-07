@@ -1,0 +1,123 @@
+a) Sum of two numbers
+
+DECLARE
+  num1 NUMBER ;
+  num2 NUMBER ;
+  sum_result NUMBER;
+BEGIN
+  num1 :=& num1;
+  num2 :=& num2;
+  sum_result := num1 + num2;
+  DBMS_OUTPUT.PUT_LINE('Sum = ' || sum_result);
+END;
+/
+
+
+
+
+b) Print even numbers up to a limit
+
+DECLARE
+  n NUMBER ;
+  i NUMBER ;
+BEGIN
+  n :=& n;
+  i := 0;
+  while (i<n)
+    LOOP
+      DBMS_OUTPUT.PUT_LINE(i);
+      i=i+2;
+    END LOOP;
+END;
+/
+
+
+
+
+
+
+
+c) Factorial of a number (user input)
+
+DECLARE
+  num NUMBER;
+  fact NUMBER;
+  i NUMBER;
+BEGIN
+  num := &num;
+  fact := 1;
+  i :=1;
+  FOR i IN 1..num 
+    LOOP
+      fact := fact * i;
+    END LOOP;
+  DBMS_OUTPUT.PUT_LINE('Factorial of ' || num || ' = ' || fact);
+END;
+/
+
+
+
+
+
+
+d) Display reverse of a number (user input)
+
+DECLARE
+  num NUMBER;
+  rev NUMBER ;
+  temp NUMBER;
+BEGIN
+  num:= &num;
+  rev := 0;
+  temp := num;
+  WHILE temp > 0 LOOP
+    rev := rev * 10 + MOD(temp, 10);
+    temp := FLOOR(temp / 10);
+  END LOOP;
+  DBMS_OUTPUT.PUT_LINE('Reverse of ' || num || ' = ' || rev);
+END;
+/
+
+
+
+
+
+
+
+e) Sum of digits of a number (user input)
+
+
+
+DECLARE
+  num NUMBER;
+  sum_digits NUMBER;
+  temp NUMBER;
+BEGIN
+  num:= &num;
+  sum_digits  := 0;
+  temp := num;
+  WHILE temp > 0 LOOP
+    sum_digits := sum_digits + MOD(temp, 10);
+    temp := FLOOR(temp / 10);
+  END LOOP;
+  DBMS_OUTPUT.PUT_LINE('Sum of digits of ' || num || ' = ' || sum_digits);
+END;
+/
+
+
+
+
+
+f) Area & perimeter of a circle (user input)
+DECLARE
+  radius NUMBER := &radius;
+  area NUMBER;
+  perimeter NUMBER;
+BEGIN
+  radius := &radius;
+  area := 3.14159 * radius * radius;
+  perimeter := 2 * 3.14159 * radius;
+  DBMS_OUTPUT.PUT_LINE('Area = ' || area);
+  DBMS_OUTPUT.PUT_LINE('Perimeter = ' || perimeter);
+END;
+/
